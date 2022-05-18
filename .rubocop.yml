@@ -2,7 +2,10 @@ require:
   - rubocop-rspec
 
 AllCops:
-    NewCops: enable
+  Exclude:
+    - 'notes.rb'
+    - 'vendor/**/*'
+  NewCops: enable
 
 Metrics/BlockLength:
   Exclude:

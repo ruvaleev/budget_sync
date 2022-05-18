@@ -8,6 +8,7 @@ gem 'bigdecimal'
 gem 'i18n'
 
 group :development do
+  gem 'bundler-audit'
   gem 'byebug'
   gem 'rubocop'
 end
