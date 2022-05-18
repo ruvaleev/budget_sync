@@ -1,0 +1,7 @@
+en:
+  completed: Correction completed
+  recommendations:
+    expense: Apply correction Expense to '%{account}' (%{amount} %{currency})
+    income: Apply correction Income to '%{account} (%{amount} %{currency})'
+    transfer: From '%{reduction_account}' transfer %{reduction_amount} %{reduction_currency} to '%{increasion_account}' (%{increasion_amount} %{increasion_currency})
+    
