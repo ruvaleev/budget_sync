@@ -21,14 +21,20 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-    - name: Set up Ruby
-    # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
-    # change this to (see https://github.com/ruby/setup-ruby#versioning):
-    # uses: ruby/setup-ruby@v1
-      uses: ruby/setup-ruby@2b019609e2b0f1ea1a2bc8ca11cb82ab46ada124
+    - name: Install Ruby version specified in `.ruby-version`
+      uses: eregon/use-ruby-action@master
+    - name: Setup cache key and directory for gems cache
+      uses: actions/cache@v1.0.3
       with:
-        ruby-version: ${{ matrix.ruby-version }}
+        path: vendor/bundle
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+        key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gem-
+    - name: Install dependencies
+      run: |
+        gem install bundler bundler-audit
+        bundle install --jobs 4 --retry 3 --path vendor/bundle
     - name: Run bundler audit
       run: bundler-audit
     - name: Run rubocop

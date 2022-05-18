@@ -4,6 +4,7 @@ require:
 AllCops:
   Exclude:
     - 'notes.rb'
+    - 'vendor/**/*'
   NewCops: enable
 
 Metrics/BlockLength:
