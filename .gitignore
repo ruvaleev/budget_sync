@@ -1,2 +1,4 @@
 .byebug_history
 notes.rb
+.DS_Store
+exports/*.csv

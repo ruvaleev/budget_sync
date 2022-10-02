@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 ruby '3.0.2'
 
 gem 'bigdecimal'
+gem 'csv'
 gem 'i18n'
 
 group :development do
